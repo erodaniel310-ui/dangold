@@ -103,60 +103,24 @@ export default function WhatWeDo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-2"
         >
           <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 tracking-tight mb-4">
            What We Do
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-          Professional event solutions, security services, and business promotion designed to deliver exceptional results.
-          </p>
+          <div className="mx-auto max-w-3xl space-y-4">
+           
+            <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 md:text-lg">
+              At Dangold Multi-Services, we provide professional planning, coordination, security, and promotion
+              support to ensure every event is organized, memorable, and successfully executed from start to finish.
+            </p>
+          </div>
         </motion.div>
-
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <motion.article
-              key={i}
-              className="group relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.65, delay: i * 0.1, ease: "easeOut" }}
-            >
-              {/* Card */}
-              <div className="relative h-full p-8 rounded-2xl bg-gray-200 border border-white/[0.06] backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.06] hover:border-white/[0.1] hover:-translate-y-1">
-                {/* Gradient hover effect */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.accent} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
-                
-                {/* Icon */}
-                <div className="relative mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.accent} flex items-center justify-center text-white shadow-lg shadow-black/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                    {service.icon}
-                  </div>
-                  {/* Icon glow */}
-                  <div className={`absolute inset-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.accent} blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-lg font-medium text-gray-800 mb-3 tracking-tight">
-                  {service.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-              
-
-                {/* Corner accent */}
-                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${service.accent} opacity-0 group-hover:opacity-[0.08] blur-2xl transition-opacity duration-500 rounded-tr-2xl`} />
-              </div>
-            </motion.article>
-          ))}
         </div>
 
+
        <Cards/>
-      </div>
+      
     </motion.section>
   );
 }

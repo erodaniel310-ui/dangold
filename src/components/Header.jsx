@@ -67,8 +67,8 @@ export default function Header() {
 
   const getNavLinkClassName = (targetId, mobile = false) => {
     const baseClassName = mobile
-      ? "text-sm font-medium py-3 border-b border-gray-100 last:border-none transition-colors text-left"
-      : "text-sm font-medium transition-colors tracking-wide";
+      ? "text-md font-medium py-3 border-b border-gray-100 last:border-none transition-colors text-left"
+      : "text-md font-medium transition-colors tracking-wide";
 
     return `${baseClassName} ${
       activeSection === targetId
@@ -91,18 +91,21 @@ export default function Header() {
       className="sticky top-0 z-50 border-b border-white/20 backdrop-blur-none md:backdrop-blur-md"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-24 md:h-28">
           <div className="flex-shrink-0">
             <button type="button" onClick={handleLogoClick} className="block">
               <img
                 src={logo}
                 alt="Dangold Logo"
-                className="h-16 w-auto md:h-20 cursor-pointer"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="h-20 w-auto md:h-24 cursor-pointer"
               />
             </button>
           </div>
 
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center text-md gap-6">
             {navLinks.map((link) => (
               <button
                 type="button"

@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 void motion;
 
 function About() {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <motion.section
       id="about"
@@ -209,6 +213,7 @@ function About() {
               transition={{ duration: 0.6, delay: 0.7 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
+              onClick={scrollToContact}
               className="mt-4 px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-full transition-colors duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30"
             >
               Get in Touch

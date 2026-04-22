@@ -1,9 +1,16 @@
 import { motion } from "framer-motion";
 import eventImage from "../../assets/event.jpg";
-import securityImage from "../../assets/security.jpg";
+import stageImage from "../../assets/4.jpg";
 import marketingImage from "../../assets/marketing.jpg";
+import securityImage from "../../assets/security.jpg"
+import support from "../../assets/2.jpg"
 
 void motion;
+
+const whatsappMessage = encodeURIComponent(
+  "Hello Dangold, I would like to book your service."
+);
+const whatsappLink = `https://api.whatsapp.com/send?phone=2348037485595&text=${whatsappMessage}`;
 
 const cards = [
   {
@@ -11,39 +18,80 @@ const cards = [
     layout: "right",
     title: "Event Planning & Coordination",
     description:
-      "We turn your ideas into well-organized and memorable events. From weddings and corporate functions to private celebrations, we handle planning, vendor coordination, and full event execution.",
-    author: { name: "Dangold Multi-Services", role: "Event Experts", initials: "DM" },
-    comment:
-      "We focus on delivering smooth, stress-free events so clients can enjoy every moment without worrying about the details.",
-    accentColor: "#1D4ED8", // blue
+      "We manage your event from concept to completion so you enjoy a smooth, stress-free experience without worrying about logistics.",
     image: eventImage,
     imageAlt: "Event planning and coordination",
+    points: [
+      " Event timeline planning",
+      "Vendor coordination",
+      "Guest experience management",
+'Program structure supervision',
+'Corporate and private event coordination',
+    ],
   },
   {
     id: 2,
     layout: "left",
-    title: "Event Security Services",
+    title: "Event Production & Stage Setup",
     description:
-      "Our trained professionals provide reliable security services including crowd control, VIP protection, and venue safety to ensure every event runs safely and successfully.",
-    author: { name: "Dangold Multi-Services", role: "Security Team", initials: "DM" },
-    comment:
-      "With structured planning and professional execution, we create a safe environment for both hosts and guests.",
-    accentColor: "#7C3AED", // purple
-    image: securityImage,
+      "We design and organize professional stage and venue arrangements that create visually appealing and well-structured event environments.",
+    image: stageImage,
     imageAlt: "Event security services",
+    points: [
+      "Stage layout coordination",
+      "Venue setup supervision",
+      " Equipment positioning support",
+'Seating arrangement planning',
+'Vendor setup alignment',
+    ],
   },
   {
     id: 3,
     layout: "right",
-    title: "Business Promotion & Digital Marketing",
+    title: "Traditional Wedding Compere Services",
     description:
-      "We help businesses grow their visibility through social media promotion, flyer design, and targeted marketing strategies that attract the right audience.",
-    author: { name: "Dangold Multi-Services", role: "Marketing Team", initials: "DM" },
-    comment:
-      "Our goal is to position your brand for growth and connect you with the audience that matters.",
-    accentColor: "#F97316", // orange
+      "We professionally coordinate traditional engagement and wedding ceremonies with cultural accuracy, structured flow, and confident guest engagement.",
     image: marketingImage,
     imageAlt: "Business promotion and marketing",
+    points: [
+      "Bride & groom family coordination",
+      "Cultural protocol guidance",
+      " Ceremony flow management",
+'Guest interaction and stage anchoring',
+'Engagement program direction',
+    ],
+  },
+{
+    id: 4,
+    layout: "left",
+    title: "Event Security Services",
+    description:
+      "Our trained event security professionals provide structured security coordination to ensure safe, controlled, and successful events.",
+    image: securityImage,
+    imageAlt: "Event Security Services",
+    points: [
+      "Access control supervision",
+      "Crowd control management",
+      " VIP protection coordination",
+' Venue safety support',
+'Security personnel deployment',
+    ],
+  },
+{
+    id: 5,
+    layout: "right",
+    title: "Business Promotion & Brand Visibility Support",
+    description:
+      "We help businesses and event vendors increase visibility and attract the right audience through strategic digital promotion support.",
+    image: support,
+    imageAlt: "Business Promotion & Brand Visibility Support",
+    points: [
+      "Social media promotion support",
+      " Flyer and content design",
+      " Event awareness campaigns",
+' Vendor positioning strategies',
+'Digital marketing resource support',
+    ],
   },
 ];
 
@@ -57,25 +105,40 @@ const fadeUp = {
 };
 
 function TextBlock({ card }) {
+  const handleWhatsappClick = () => {
+    window.location.href = whatsappLink;
+  };
+
   return (
-    <div className="flex flex-col gap-4 max-w-sm">
-      <h3 className="text-xl font-semibold text-gray-800">{card.title}</h3>
-      <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
-      <div className="border-l-4 pl-3" style={{ borderColor: card.accentColor }}>
-        <div className="flex items-center gap-2 mb-2">
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-            style={{ backgroundColor: card.accentColor }}
+    <div className="max-w-xl rounded-[28px] border border-gray-100 bg-white/90 p-8 shadow-[0_18px_45px_-30px_rgba(15,23,42,0.45)]">
+      <h3 className="text-2xl font-semibold text-gray-800">{card.title}</h3>
+      <p className="mt-3 text-sm leading-7 text-gray-500">{card.description}</p>
+      <ul className="mt-6 space-y-3">
+        {card.points.map((point) => (
+          <li key={point} className="flex items-center gap-3 text-sm text-gray-700">
+            <span className="h-2.5 w-2.5 flex-none rounded-full bg-blue-600" />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+      <button
+        type="button"
+        aria-label={`Book ${card.title} on WhatsApp`}
+        onClick={handleWhatsappClick}
+        className="relative z-10 mt-8 inline-flex cursor-pointer items-center gap-3 rounded-lg bg-[#25D366] px-4 py-2 text-md font-semibold text-white shadow-[0_16px_35px_-18px_rgba(37,211,102,0.95)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5b] focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+      >
+        <span>Book Us Now on WhatsApp</span>
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            {card.author.initials}
-          </div>
-          <div>
-            <p className="text-xs font-semibold text-gray-700">{card.author.name}</p>
-            <p className="text-xs text-gray-400">{card.author.role}</p>
-          </div>
-        </div>
-        <p className="text-xs text-gray-500 leading-relaxed">{card.comment}</p>
-      </div>
+            <path d="M19.1 4.9A9.9 9.9 0 0 0 3.4 16.8L2 22l5.4-1.4a9.9 9.9 0 0 0 4.7 1.2h.1A9.9 9.9 0 0 0 19.1 4.9Zm-6.9 15.2h-.1a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.2.8.9-3.1-.2-.3a8.2 8.2 0 1 1 7.1 4Zm4.5-6.1c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1-.7.7-.8.8-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.3 7.3 0 0 1-1.4-1.8c-.1-.2 0-.4.1-.5l.4-.4.3-.4c.1-.1.1-.3 0-.4s-.6-1.5-.8-2-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3a9.4 9.4 0 0 0 3.6 3.2c2.1.9 2.1.6 2.5.6s1.3-.5 1.5-.9.2-.9.1-.9-.2-.1-.4-.2Z" />
+          </svg>
+        </span>
+      </button>
     </div>
   );
 }
@@ -83,6 +146,7 @@ function TextBlock({ card }) {
 export default function Cards() {
   return (
     <section className="py-16 px-6 space-y-20 max-w-5xl mx-auto">
+   
       {cards.map((card, i) => (
         <motion.div
           key={card.id}
@@ -91,32 +155,34 @@ export default function Cards() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className={`flex flex-col md:flex-row items-center gap-10 ${
+          className={`flex flex-col items-center gap-10 md:flex-row ${
             card.layout === "left" ? "md:flex-row-reverse" : ""
           }`}
         >
-          {/* Illustration */}
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="flex-1 flex justify-center"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 220, damping: 20 }}
+            className="flex-1"
           >
-            <div
-              className="w-full max-w-md overflow-hidden rounded-3xl border border-gray-200 bg-white p-3 shadow-lg"
-              style={{ boxShadow: `0 18px 50px -24px ${card.accentColor}` }}
-            >
+            <div className="overflow-hidden rounded-[30px] border border-gray-100 bg-white p-3 shadow-[0_22px_55px_-30px_rgba(15,23,42,0.45)]">
               <img
                 src={card.image}
                 alt={card.imageAlt}
-                className="h-72 w-full rounded-2xl object-cover"
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="h-72 w-full rounded-[22px] object-cover"
               />
             </div>
           </motion.div>
 
-          {/* Text */}
-          <div className="flex-1">
+          <motion.div
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 220, damping: 20 }}
+            className="flex-1"
+          >
             <TextBlock card={card} />
-          </div>
+          </motion.div>
         </motion.div>
       ))}
     </section>

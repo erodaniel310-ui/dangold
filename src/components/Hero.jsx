@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
-import Heroimg from "../assets/hero.jpg";
+import Heroimg from "../assets/1.jpg";
 
 void motion;
 
 
 export default function Hero() {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <motion.section
       id="home"
@@ -38,16 +42,17 @@ export default function Hero() {
           transition={{ delay: 0.25, duration: 0.6 }}
           className="text-gray-500 mb-6 text-sm"
         >
-          Transforming your ideas into seamless events, secure environments,
-          and powerful business visibility all in one place.
+       Professional coordination for weddings and events, structured security support, and strategic promotion services that deliver smooth execution and stronger visibility.
         </motion.p>
 
         <motion.button
+          type="button"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
+          onClick={scrollToContact}
           className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-blue-200/50"
         >
           Contact Us
@@ -63,7 +68,11 @@ export default function Hero() {
       >
         <motion.img
           src={Heroimg}
-          alt="image"
+          alt="Dangold team coordinating an event"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          sizes="(min-width: 768px) 410px, 350px"
           initial={{ scale: 0.98, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

@@ -5,23 +5,37 @@ void motion;
 
 const testimonials = [
   {
-    name: "John Smith",
-    initials: "JS",
+    name: " Mr. & Mrs. Kenny Ogundare",
+    initials: "KO",
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.",
+      "Dangold Multi-Services made our traditional wedding smooth, organized, and truly memorable.",
   },
   {
-    name: "Sarah Lee",
-    initials: "SL",
+    name: "Mr. Silvester Joseph",
+    initials: "SJ",
     quote:
-      "Voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      "Their event coordination and security structure brought professionalism and order to our program.",
   },
   {
-    name: "Mark Evans",
-    initials: "ME",
+    name: "Mr. Gbolagade Philip",
+    initials: "GP",
     quote:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+      "Excellent crowd control and VIP protection. Very reliable and well-coordinated team.",
   },
+
+  {
+    name: "Mr. David",
+    initials: "D",
+    quote:
+      "Their digital promotion support improved my business visibility significantly.",
+  },
+
+  {
+    name: "Mrs. Oluwatoyin Ogunjimi",
+    initials: "OO",
+    quote:
+      "A dependable team for vendor coordination, stage setup, and complete event support.",
+  }, 
 ];
 
 export default function Testimonials() {

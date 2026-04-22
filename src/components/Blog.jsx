@@ -54,6 +54,9 @@ function BlogCard({ post, index }) {
           <motion.img
             src={post.image}
             alt={post.title}
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="h-full w-full object-cover"
             whileHover={{ scale: 1.08 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -136,7 +139,7 @@ export default function Blog() {
               : new Date(item.sys.createdAt).toLocaleDateString(),
             excerpt: item.fields.excerpt,
             image: item.fields.image?.fields?.file?.url
-              ? `https:${item.fields.image.fields.file.url}`
+              ? `https:${item.fields.image.fields.file.url}?w=900&h=675&fit=fill&fm=webp&q=75`
               : null,
           }));
 
