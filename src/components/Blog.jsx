@@ -79,14 +79,7 @@ function BlogCard({ post, index }) {
       </p>
       <div className="flex items-center justify-between text-xs font-medium text-slate-500">
         <span>{post.author}</span>
-        <motion.span
-          className="text-blue-600"
-          initial={{ x: 0 }}
-          whileHover={{ x: 4 }}
-          transition={{ duration: 0.2 }}
-        >
-          Read update
-        </motion.span>
+   
       </div>
     </motion.div>
   );

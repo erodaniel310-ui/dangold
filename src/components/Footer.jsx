@@ -18,10 +18,25 @@ const footerSections = [
   {
     heading: "Support",
     paragraph: [
-      "Phone Number: 08052334031",
-      "Whatsapp Number: 08037485595",
-      "Email Address: dangoldmultiservices@hotmail.com",
-      "Address: Dangold Building, Desalu Street Odo Ona Apata Ibadan, Oyo State",
+      {
+        label: "Phone Number",
+        value: "08052334031",
+        href: "tel:+2348052334031",
+      },
+      {
+        label: "Whatsapp Number",
+        value: "08037485595",
+        href: "https://wa.me/2348037485595",
+      },
+      {
+        label: "Email Address",
+        value: "dangoldmultiservices@hotmail.com",
+        href: "mailto:dangoldmultiservices@hotmail.com",
+      },
+      {
+        label: "Address",
+        value: "Dangold Building, Desalu Street Odo Ona Apata Ibadan, Oyo State",
+      },
     ],
   },
 ];
@@ -85,12 +100,14 @@ export default function Footer() {
               alt="Dangold logo"
               loading="lazy"
               decoding="async"
-              className="h-24 md:h-28"
+              className="h-28 w-auto sm:h-32 md:h-36"
             />
             <p className="mt-4 text-md leading-7 text-white">
-              One Brand. Many Services. Exceptional Results. We deliver
-              professional event planning, security services, and business
-              promotion you can trust.
+              <span className="rounded-md px-1 py-0.5 transition-all duration-300 hover:bg-white/10 hover:text-yellow-300">
+                One Brand. Many Services. Exceptional Results. We deliver
+                professional event planning, security services, and business
+                promotion you can trust.
+              </span>
             </p>
 
             <div className="mt-6 flex gap-3">
@@ -119,9 +136,9 @@ export default function Footer() {
                     <li key={link.label}>
                       <motion.a
                         href={link.href}
-                        whileHover={{ x: 4, color: "#fff" }}
+                        whileHover={{ x: 4 }}
                         transition={{ type: "spring", stiffness: 300 }}
-                        className="inline-block text-md text-white transition-colors hover:text-white"
+                        className="inline-block rounded-md px-2 py-1 text-md text-white transition-all duration-300 hover:bg-white/10 hover:text-yellow-300"
                       >
                         {link.label}
                       </motion.a>
@@ -131,7 +148,26 @@ export default function Footer() {
               ) : (
                 <div className="space-y-3 text-md leading-6 text-white">
                   {section.paragraph.map((item) => (
-                    <p key={item}>{item}</p>
+                    item.href ? (
+                      <motion.a
+                        key={item.label}
+                        href={item.href}
+                        whileHover={{ x: 4 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className="block rounded-md px-2 py-1 transition-all duration-300 hover:bg-white/10 hover:text-yellow-300"
+                      >
+                        <span className="font-medium">{item.label}:</span>{" "}
+                        {item.value}
+                      </motion.a>
+                    ) : (
+                      <p
+                        key={item.label}
+                        className="rounded-md px-2 py-1 transition-all duration-300 hover:bg-white/10 hover:text-yellow-300"
+                      >
+                        <span className="font-medium">{item.label}:</span>{" "}
+                        {item.value}
+                      </p>
+                    )
                   ))}
                 </div>
               )}

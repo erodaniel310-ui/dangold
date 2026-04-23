@@ -6,11 +6,10 @@ import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
-    subject: "",
-    message: "",
+    phoneNumber: "",
+    dateReservation: "",
   });
   
   const [submitted, setSubmitted] = useState(false);
@@ -129,37 +128,32 @@ export default function Contact() {
             <p className="text-gray-700 font-medium">Message sent!</p>
             <p className="text-sm text-gray-400 mt-1">We'll get back to you soon.</p>
             <button
-              onClick={() => { setSubmitted(false); setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" }); }}
+              onClick={() => {
+                setSubmitted(false);
+                setForm({
+                  fullName: "",
+                  email: "",
+                  phoneNumber: "",
+                  dateReservation: "",
+                });
+              }}
               className="mt-6 text-sm text-blue-500 hover:underline"
             >
-              Send another
+              BOOK US 
             </button>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <div className="flex min-w-0 flex-col gap-1">
-                <label className="text-xs text-gray-400">First Name</label>
-                <input
-                  name="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  required
-                  placeholder="John"
-                  className="w-full min-w-0 rounded border border-gray-200 px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-400"
-                />
-              </div>
-              <div className="flex min-w-0 flex-col gap-1">
-                <label className="text-xs text-gray-400">Last Name</label>
-                <input
-                  name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  required
-                  placeholder="Smith"
-                  className="w-full min-w-0 rounded border border-gray-200 px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-400"
-                />
-              </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-gray-400">Full Name</label>
+              <input
+                name="fullName"
+                value={form.fullName}
+                onChange={handleChange}
+                required
+                placeholder="John Smith"
+                className="w-full min-w-0 rounded border border-gray-200 px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-400"
+              />
             </div>
 
             <div className="flex flex-col gap-1">
@@ -176,27 +170,27 @@ export default function Contact() {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs text-gray-400">Subject</label>
+              <label className="text-xs text-gray-400">Phone Number</label>
               <input
-                name="subject"
-                value={form.subject}
+                name="phoneNumber"
+                type="tel"
+                value={form.phoneNumber}
                 onChange={handleChange}
                 required
-                placeholder="How can we help?"
+                placeholder="08012345678"
                 className="w-full min-w-0 rounded border border-gray-200 px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-400"
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs text-gray-400">Message</label>
-              <textarea
-                name="message"
-                value={form.message}
+              <label className="text-xs text-gray-400">Date Reservation</label>
+              <input
+                name="dateReservation"
+                type="date"
+                value={form.dateReservation}
                 onChange={handleChange}
                 required
-                rows={4}
-                placeholder="Leave us a message here..."
-                className="w-full min-w-0 resize-none rounded border border-gray-200 px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-400"
+                className="w-full min-w-0 rounded border border-gray-200 px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-400"
               />
             </div>
 
@@ -213,7 +207,7 @@ export default function Contact() {
                 cursor: loading ? "not-allowed" : "pointer" 
               }}
             >
-              {loading ? "Sending..." : "Send Message"}
+              {loading ? "Sending..." : "BOOK US"}
             </motion.button>
           </form>
         )}

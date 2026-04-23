@@ -100,7 +100,7 @@ export default function Header() {
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
-                className="h-20 w-auto md:h-24 cursor-pointer"
+                className="h-24 w-auto cursor-pointer sm:h-28 md:h-32"
               />
             </button>
           </div>

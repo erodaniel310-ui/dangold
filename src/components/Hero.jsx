@@ -29,11 +29,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-4xl font-extrabold text-gray-800 leading-tight mb-4"
+          className="text-2xl md:text-3xl font-extrabold text-gray-800 leading-tight mb-4"
         >
-           One Brand. Many Services.
+          Professional Event Planning, Security & Wedding Coordination
           <br />
-          <span className="text-orange-500">Exceptional Results.</span>
+          <span className="text-orange-500"> Services Across Nigeria</span>
         </motion.h1>
 
         <motion.p
@@ -42,7 +42,7 @@ export default function Hero() {
           transition={{ delay: 0.25, duration: 0.6 }}
           className="text-gray-500 mb-6 text-sm"
         >
-       Professional coordination for weddings and events, structured security support, and strategic promotion services that deliver smooth execution and stronger visibility.
+      We plan, coordinate and secure events from start to finish — so you enjoy a smooth and stress-free experience
         </motion.p>
 
         <motion.button
